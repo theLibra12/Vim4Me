@@ -1,45 +1,24 @@
-set nocompatible
+set nocompatible	" use vim settings, rather than Vi settings
+set noswapfile		" don't need swap file
+set nobackup		" i don't want to backup file, so
+set number		" show row number
+set ruler		" show the cursor position all the time
 
-" don't need swap file
-set noswapfile
+syntax on 		" i want colorful font
 
-" i don't want to backup file, so
-set nobackup
+filetype plugin on	" detect file type
+filetype plugin indent on
 
-" show row number
-set number
+filetype on
+
+" it is Linux style
+set guifont=DejaVu\ Sans\ Mono\ 10
+" it is Windows style
+set guifont=DejaVu_Sans_Mono:h10:cANSI
 
 " this is a theme i like
 colorscheme desert
 
-source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
-
-set diffexpr=MyDiff()
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-endfunction
 
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
