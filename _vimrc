@@ -1,8 +1,15 @@
 set nocompatible	" use vim settings, rather than Vi settings
 set noswapfile		" don't need swap file
 set nobackup		" i don't want to backup file, so
-set number		" show row number
-set ruler		" show the cursor position all the time
+set number			" show row number
+set ruler			" show the cursor position all the time
+set tabstop=4		" usually the 4 for tab is more friendly
+set shiftwidth=4	" 
+set autoindent
+set incsearch 		" i want use increasement search
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
 
 syntax on 		" i want colorful font
 
@@ -19,6 +26,13 @@ set guifont=DejaVu_Sans_Mono:h10:cANSI
 " this is a theme i like
 colorscheme desert
 
+" set ctags.exe path
+let Tlist_Ctags_Cmd = $VIM.'/vimfiles'
+" To exit Vim when only the taglist window is present
+let Tlist_Exit_OnlyWindow = 1
+
+" add a key to invoke taglist
+nnoremap <silent> <F11> :TlistToggle<CR>
 
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
