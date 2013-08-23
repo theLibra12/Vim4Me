@@ -11,8 +11,9 @@ set incsearch 		" i want use increasement search
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-syntax on 		" i want colorful font
+syntax on 			" i want colorful font
 
+set nocp
 filetype plugin on	" detect file type
 filetype plugin indent on
 
@@ -27,7 +28,8 @@ set guifont=DejaVu_Sans_Mono:h10:cANSI
 colorscheme desert
 
 " set ctags.exe path
-let Tlist_Ctags_Cmd = $VIM.'/vimfiles'
+let Tlist_Ctags_Cmd = '"C:\Program Files (x86)\Vim\vimfiles\ctags.exe"'
+" let Tlist_Ctags_Cmd = '"..\vimfiles\ctags.exe"'
 " To exit Vim when only the taglist window is present
 let Tlist_Exit_OnlyWindow = 1
 
